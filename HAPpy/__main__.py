@@ -199,9 +199,15 @@ def annotations2fl(annotations,ref_genome,output_file):
     """outputs full length protein sequences from annotations for clustering"""
     fasta_out = open(output_file,'w')
     for i in range(len(annotations)):
+         print(f"[INFO] Processing {annotations[i]} with {ref_genome[i]}")
         sp_genome = genome.Genome(ref_genome[i])
         sp_genome.read_gff(annotations[i])
-        fasta_out.write(sp_genome.annotations.get_fasta('transcript',seq_type = 'protein') + "\n")
+        print(f"Parsed transcripts: {len(sp_genome.annotations.transcript.items())}")
+        fasta_str = sp_genome.annotations.get_fasta('transcript', seq_type='protein')
+        if not fasta_str.strip():
+            print(f"[WARNING] No protein sequences extracted for {annotations[i]}")
+        fasta_out.write(fasta_str + "\n")
+        #fasta_out.write(sp_genome.annotations.get_fasta('transcript',seq_type = 'protein') + "\n")
     fasta_out.close()
 
 def build_clusters(protein_fasta,out_dir,threads,dthresh,path_dict,log_file):
@@ -874,7 +880,7 @@ def main():
                                                     args.threads,args.cutoff, path_dict,run_log)
             pickle.dump(clusters,open('_clusters.pkl','wb'))
             pickle.dump(prot_seq_dict,open('_psd.pkl','wb'))
-            subprocess.call(['python', '-m', 'HAPpy.HAPpy-hiMem-client.py','output_fastas',args.search_mode,
+            subprocess.call(['python', '-m', 'HAPpy.HAPpy-hiMem-client','output_fastas',args.search_mode,
                           args.output_dir + '/clusters',str(args.ref_genome), str(args.annotations)])
             del clusters
             del prot_seq_dict
