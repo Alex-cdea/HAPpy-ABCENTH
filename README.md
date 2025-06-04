@@ -3,7 +3,7 @@ A pipeline for homology based annotation utilizing exon structural conservation
 
 ## Installation/dependencies
 Dependencies: python (inlcuding numpy, ete3, pandas, and intervaltree libraries), HMMER version 3, MAFFT. Wise2 is also required to use the "full_pseudoexon_search" mode in ABCENTH. All of these dependencies can be installed using conda (see below).
-### Install with conda + pip
+### Install with conda + pip (original version only)
 ```
 conda create -n happy -c bioconda -c etetoolkit python=3 numpy ete3 wise2 mafft=7 hmmer=3 intervaltree pandas
 conda activate happy
@@ -11,7 +11,8 @@ pip install HAPpy-ABCENTH
 ```
 ### Install from source
 ```
-git clone https://github.com/biorover/HAPpy-ABCENTH.git
+#git clone https://github.com/biorover/HAPpy-ABCENTH.git
+git clone https://github.com/Alex-cdea/HAPpy-ABCENTH.git
 cd HAPpy-ABCENTH
 conda env create -n happy -f conda_env.yaml
 conda activate happy
