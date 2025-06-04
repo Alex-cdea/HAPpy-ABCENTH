@@ -29,6 +29,27 @@ HAPpy can be used in many different ways (full options list available with `HAPp
     --annotations <one gtf per ref genome> --cutoff <p distance at which proteins are clustered, 0.45 for ant ORs> \
     --search_mode exons --annotator ABCENTH
     ```
+    Update: works with this specific gff format:
+    ```
+    ##gff-version 3
+    chromosome_1	source	gene	715889	717777	.	+	.	ID=gene-1
+    chromosome_1	source	mRNA	715889	717777	.	+	.	ID=transcript-1;Parent=gene-1
+    chromosome_1	source	CDS	715889	715974	.	+	0	ID=transcript-1-CDS0;Parent=transcript-1
+    chromosome_1	source	CDS	716565	716792	.	+	1	ID=transcript-1-CDS1;Parent=transcript-1
+    chromosome_1	source	CDS	717118	717298	.	+	1	ID=transcript-1-CDS2;Parent=transcript-1
+    chromosome_1	source	CDS	717652	717777	.	+	0	ID=transcript-1-CDS3;Parent=transcript-1
+    chromosome_1	source	gene	1401169	1404180	.	+	.	ID=gene-2
+    chromosome_1	source	mRNA	1401169	1404180	.	+	.	ID=transcript-2;Parent=gene-2
+    chromosome_1	source	CDS	1401169	1401174	.	+	0	ID=transcript-2-CDS4;Parent=transcript-2
+    chromosome_1	source	CDS	1402036	1402483	.	+	0	ID=transcript-2-CDS5;Parent=transcript-2
+    chromosome_1	source	CDS	1402855	1403140	.	+	2	ID=transcript-2-CDS6;Parent=transcript-2
+    chromosome_1	source	CDS	1403321	1403405	.	+	1	ID=transcript-2-CDS7;Parent=transcript-2
+    chromosome_1	source	CDS	1403665	1403703	.	+	0	ID=transcript-2-CDS8;Parent=transcript-2
+    chromosome_1	source	CDS	1403893	1404048	.	+	0	ID=transcript-2-CDS9;Parent=transcript-2
+    chromosome_1	source	CDS	1404130	1404180	.	+	0	ID=transcript-2-CDS10;Parent=transcript-2
+    ```
+    "source" can be replaced by ".*", "mRNA" can be replaced by "transcript". Gene features must have the ID attribute. CDS and transcript features must all have ID and Parent attributes.
+    
     If you have pre-built hmm files for each exon in each cluster:
     ```
     HAPpy --genome <target genome fasta> --hmm_dir <path to hmm folder> \
