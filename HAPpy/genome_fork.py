@@ -473,6 +473,8 @@ def read_gff(gff,annotation_set_to_modify = None, base_features = ['CDS','match_
             feature_type = fields[2]
             if feature_type in features_to_ignore:
                 continue
+            if feature_type == "mRNA":
+                feature_type = "transcript"
             coords = [int(fields[3]),int(fields[4])]
             coords.sort()
             coords = tuple(coords)
