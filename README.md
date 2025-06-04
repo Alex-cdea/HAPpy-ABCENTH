@@ -1,3 +1,5 @@
+Please, see https://github.com/biorover/HAPpy-ABCENTH
+
 # HAPpy-ABCENTH
 A pipeline for homology based annotation utilizing exon structural conservation
 
