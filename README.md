@@ -19,7 +19,7 @@ pip install HAPpy-ABCENTH
 git clone https://github.com/Alex-cdea/HAPpy-ABCENTH.git
 cd HAPpy-ABCENTH
 conda env create -n happy -f conda_env.yaml
-conda activate happy
+conda activate happy-abcenth_1.0.2
 python setup.py install
 ```
 ## Usage
