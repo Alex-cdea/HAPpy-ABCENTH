@@ -53,7 +53,7 @@ HAPpy can be used in many different ways (full options list available with `HAPp
     chromosome_1	source	CDS	1403893	1404048	.	+	0	ID=transcript-2-CDS9;Parent=transcript-2
     chromosome_1	source	CDS	1404130	1404180	.	+	0	ID=transcript-2-CDS10;Parent=transcript-2
     ```
-    "source" can be replaced by ".*", "mRNA" can be replaced by "transcript". Gene features must have the ID attribute. CDS and transcript features must all have ID and Parent attributes.
+    "source" can be replaced by ".*", "mRNA" can be replaced by "transcript". Gene features must have the ID attribute. CDS and transcript features must all have ID and Parent attributes. Try to keep only gene, transcript/mRNA and CDS features in your gff and ID/Parent attributes. 
     
     If you have pre-built hmm files for each exon in each cluster:
     ```
