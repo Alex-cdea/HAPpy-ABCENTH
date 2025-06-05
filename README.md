@@ -34,7 +34,7 @@ HAPpy can be used in many different ways (full options list available with `HAPp
     --annotations <one gtf per ref genome> --cutoff <p distance at which proteins are clustered, 0.45 for ant ORs> \
     --search_mode exons --annotator ABCENTH
     ```
-    Update: works with this specific gff format:
+    Update: works with this specific gff format (reference gff):
     ```
     ##gff-version 3
     chromosome_1	source	gene	715889	717777	.	+	.	ID=gene-1
