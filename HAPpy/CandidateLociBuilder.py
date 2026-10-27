@@ -147,7 +147,7 @@ def find_candidate_loci(coord_dict, buffer_len, genome_file):
     genome_list = open(genome_file).read().split('>')[1:]
     for seq in genome_list:
         lines = seq.split('\n')
-        genome_dict[lines[0]] = "".join(lines[1:])
+        genome_dict[lines[0].split()[0]] = "".join(lines[1:])
 
     candidate_loci_seqs = {}
     candidate_loci_fasta_list = []
