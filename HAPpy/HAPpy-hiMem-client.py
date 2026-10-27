@@ -26,7 +26,7 @@ def output_fastas(clusters, prot_seq_dict, search_mode, fasta_dir,ref_genome_lis
     if search_mode == 'exons':
         ref_genomes = []
         for i in range(len(ref_genome_list)):
-            ref_genomes.append(genome.Genome(ref_genome_list[i]))
+            ref_genomes.append(genome.Genome(ref_genome_list[i], truncate_names = True))
             ref_genomes[-1].read_gff(annotations[i])
     for cluster_index in range(len(clusters)):
         cluster = clusters[cluster_index]
