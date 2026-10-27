@@ -200,7 +200,7 @@ def annotations2fl(annotations,ref_genome,output_file):
     fasta_out = open(output_file,'w')
     for i in range(len(annotations)):
         print(f"[INFO] Processing {annotations[i]} with {ref_genome[i]}")
-        sp_genome = genome.Genome(ref_genome[i])
+        sp_genome = genome.Genome(ref_genome[i], truncate_names = True)
         sp_genome.read_gff(annotations[i])
         print(f"Parsed transcripts: {len(sp_genome.annotations.transcript.items())}")
         fasta_str = sp_genome.annotations.get_fasta('transcript', seq_type='protein')
