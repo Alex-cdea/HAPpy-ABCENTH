@@ -199,7 +199,7 @@ def annotations2fl(annotations,ref_genome,output_file):
     """outputs full length protein sequences from annotations for clustering"""
     fasta_out = open(output_file,'w')
     for i in range(len(annotations)):
-         print(f"[INFO] Processing {annotations[i]} with {ref_genome[i]}")
+        print(f"[INFO] Processing {annotations[i]} with {ref_genome[i]}")
         sp_genome = genome.Genome(ref_genome[i])
         sp_genome.read_gff(annotations[i])
         print(f"Parsed transcripts: {len(sp_genome.annotations.transcript.items())}")
